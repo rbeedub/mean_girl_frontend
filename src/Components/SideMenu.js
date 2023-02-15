@@ -1,16 +1,21 @@
 import React from 'react';
-// import MeanGirlList from 'MeanGirlList';
-// import AddMeanGirl from 'AddMeanGirl';
-// import StudentList from 'StudentList';
-// import NewStudentForm from 'NewStudentForm';
+import MiniMGCard from './MiniMGCard';
+
+function SideMenu( {meangirlsArray} ) {
+ 
+
+    let allMeanies = meangirlsArray.map((girl) => {
+        return <MiniMGCard key={girl.id} {...girl} />
+    })
 
 
-function SideMenu() {
     return (
         <div>
-            <h1>Menu</h1>
-            <p>Meet the Plastics</p>
-            <p>Meet the students of North Shore High</p>
+            <h2>Meet the Plastics</h2>
+            {allMeanies}
+            <div class="ui center pink button">Become a plastic!</div>
+            {/* <p>Apply to become a plastic.</p> */}
+
         </div>
     )
 }
