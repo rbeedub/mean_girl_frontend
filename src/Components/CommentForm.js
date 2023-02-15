@@ -1,16 +1,32 @@
 import React from 'react';
 import { useState } from 'react'
 
-function CommentForm() {
+function CommentForm( { studentsArray, meangirlsArray, onFormSubmit } ) {
+
+let studentDropDown = studentsArray.map((student) =>
+    <option key={student.id}>
+        {student.name}
+    </option>
+    )
+
+
+let meangirlsDropDown = meangirlsArray.map((eachMG) =>
+    <option key={eachMG.id}>
+        {eachMG.name}
+    </option>
+    )
+
         const initialData = {
-            name:'',
+            student: 'Student',
             level_of_uncool:'',
             like: false,
-            incminating_photo:'',
-            comment:''
+            incriminating_photo:'',
+            comment:'',
+            plastic: 'Plastic'
         }
 
 const [formData, setFormdata] = useState(initialData)
+
 
 function handleFormChange(e) {
     const {name, value} = e.target;
@@ -21,33 +37,28 @@ function handleFormSubmit (e) {
     e.preventDefault();
 
     fetch('http://localhost:9292/comments', {
-    method: 'POST',
+    method: 'PATCH',
     headers: {
         'Content-Type': 'application/json',
     },
     body: JSON.stringify(formData),
     })
     .then((response) => response.json())
-    // .then(onFormSubmit)
+    .then(onFormSubmit)
 
     .then(setFormdata(initialData))
 }
 
 return (
-    // onSubmit={handleFormSubmit}
-    <form class="ui form"  >
+    <form class="ui form" onSubmit={handleFormSubmit}  >
         <div class="ui one column">
-        {/* <div class="column">ONE </div> */}
-
-        <div >
+        <div>
             <div class="one field">
                 <div class="field">
-                <label>Student Name</label>
-                <input value= {formData.name} type="text" name="name" placeholder="Name" onChange={handleFormChange} required />
-                </div>
-                <div class="field">
-                <label>Student Yearbook Photo</label>
-                <input value= {formData.yearbook_photo} type="text" name="yearbook_photo"  placeholder="yearbook photo" onChange={handleFormChange}required  />
+                    <label>Select a Student</label>
+                    <select class = "ui fluid dropdown" value= {formData.student} type="select" name="student" onChange={handleFormChange} >
+                    {studentDropDown}
+                    </select>
                 </div>
                 <div class="field">
                 <label>Level of Uncool 1-10 </label>
@@ -55,28 +66,18 @@ return (
                 </div>
                 <div class="field">
                 <label>Incrminating Photo</label>
-                <input value= {formData.incrminating_photo} type="text" name="incriminating_photo"  placeholder="Incriminating photo" onChange={handleFormChange}required  />
+                <input value= {formData.incriminating_photo} type="text" name="incriminating_photo"  placeholder="Incriminating photo" onChange={handleFormChange}required  />
                 </div>
                 <div class="field">
                 <label>Sick burn goes here: </label>
                 <input value= {formData.comment} type="text" name="comment"  placeholder="comment" onChange={handleFormChange}required  />
-                {/* <textarea rows="2"></textarea> */}
-                <br></br>
-                <div class="field">
-                <div>
-                <p>With love,</p>
-                </div>
-                    <select>
-                    <option value="">Plastic</option>
-                    <option value="0">Regina George</option>
-                    <option value="1">Karen Smith</option>
-                    <option value="2">Gretchen Wieners</option>
-                    <option value="3">Cady Heron</option>
+                <div class="field" onChange={handleFormChange} >
+                    <label>With love,</label>
+                    <select class = "ui fluid dropdown" value= {formData.plastic} type="select" name="plastic" onChange={handleFormChange} >
+                    {meangirlsDropDown}
                     </select>
                 </div>
-
             </div>
-
             </div>
             <button class='ui left floated pink button' type="submit">Burn 'em</button>
             </div>
@@ -87,8 +88,5 @@ return (
     )
     }
 
-
-//     )
-// }
 
 export default CommentForm;

@@ -11,6 +11,8 @@ function Feed () {
     const [studentsArray, setStudentsArray] = useState([])
 
 
+
+
     useEffect(() => {
         fetch('http://localhost:9292/comments')
           .then(response => response.json())
@@ -31,6 +33,10 @@ function Feed () {
           .then(setStudentsArray)
       }, []
     )
+
+    function onFormSubmit(newComment){
+        setCommentsArray([...commentsArray, newComment])
+      }
 
 
     return (
@@ -54,7 +60,12 @@ function Feed () {
                 <div class="ui segment">
                     <h1>Add a burn....</h1>
                     <CommentForm
-                    commentsArray={commentsArray} />
+                    studentsArray={studentsArray}
+                    setStudentsArray={setStudentsArray}
+                    meangirlsArray={meangirlsArray}
+                    setMeangirlsArray={setMeangirlsArray}
+                    onFormSubmit={onFormSubmit}
+                    />
                 </div>
             </div>
         </div>

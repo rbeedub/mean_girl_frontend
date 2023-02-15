@@ -8,7 +8,14 @@ function CommentWall( {commentsArray} ) {
  
 
 let allInfo= commentsArray.map((comment) => {
-        return <CommentCard key={comment.id} comment={comment} {...comment.meangirl} {...comment.student} />
+        return <CommentCard 
+        key={comment.id} 
+        comment={comment.comment} 
+        incriminating_photo={comment.incriminating_photo} 
+        level_of_uncool={comment.level_of_uncool} 
+        like={comment.like} 
+        {...comment.meangirl} 
+        {...comment.student} />
     }
     )
 
