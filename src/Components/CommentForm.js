@@ -5,12 +5,12 @@ function CommentForm( { studentsArray, meangirlsArray, onFormSubmit, commentsArr
 
 
     const initialData = {
-        student: 'Student',
+        student_id: '',
         level_of_uncool: '',
         like: false,
         incriminating_photo:'',
         comment:'',
-        plastic: 'Plastic'
+        meangirl_id: ''
     }
 
 const [formData, setFormdata] = useState(initialData)
@@ -18,27 +18,27 @@ const [studentID, setStudentID] = useState()
 
 
 let studentDropDown = studentsArray.map((student) =>
-    <option key={student.id}>
+    <option key={student.id} value={student.id}>
         {student.name}
     </option>
     )
 
-function handleStudentChange(e){
-    let selectedStudent = studentsArray.find(student => student.name === e.target.value)
-    setStudentID(selectedStudent.id)
-    handleFormChange(e)
-    console.log(selectedStudent)
-}
+// function handleStudentChange(e){
+//     let selectedStudent = studentsArray.find(student => student.name === e.target.value)
+//     setStudentID(selectedStudent.id)
+//     handleFormChange(e)
+//     console.log(selectedStudent)
+// }
 
-function handleMeangirlChange(e){
-    let selectedMeangirl = meangirlsArray.find(meanie => meanie.name === e.target.value)
-    setStudentID(selectedMeangirl.id)
-    handleFormChange(e)
-    console.log(selectedMeangirl)
-}
+// function handleMeangirlChange(e){
+//     let selectedMeangirl = meangirlsArray.find(meanie => meanie.name === e.target.value)
+//     setStudentID(selectedMeangirl.id)
+//     handleFormChange(e)
+//     console.log(selectedMeangirl)
+// }
 
 let meangirlsDropDown = meangirlsArray.map((eachMG) =>
-    <option key={eachMG.id}>
+    <option key={eachMG.id} value={eachMG.id}>
         {eachMG.name}
     </option>
     )
@@ -74,7 +74,7 @@ return (
             <div class="one field">
                 <div class="field">
                     <label>Select a Student</label>
-                    <select class = "ui fluid dropdown" value= {formData.student} type="select" name="student" placeholder="Student" onChange={handleStudentChange} >
+                    <select class = "ui fluid dropdown" value= {formData.student} type="select" name="student_id" placeholder="Student" onChange={handleFormChange} >
                     {studentDropDown}
                     </select>
                 </div>
@@ -91,7 +91,7 @@ return (
                 <input value= {formData.comment} type="text" name="comment"  placeholder="comment" onChange={handleFormChange}required />
                 <div class="field" onChange={handleFormChange} >
                     <label>With love,</label>
-                    <select class = "ui fluid dropdown" value= {formData.plastic} type="select" name="plastic" onChange={handleMeangirlChange} >
+                    <select class = "ui fluid dropdown" value= {formData.plastic} type="select" name="meangirl_id" onChange={handleFormChange} >
                     {meangirlsDropDown}
                     </select>
                 </div>

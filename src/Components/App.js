@@ -2,7 +2,6 @@ import React from "react";
 import Header from "./Header";
 import Feed from "./Feed";
 import AddMeanGirl from "./AddMeanGirl";
-import UpdateStudent from "./UpdateStudent";
 import { Route, Switch } from "react-router-dom";
 import AllStudents from "./AllStudents";
 import { useState, useEffect } from 'react';
@@ -11,6 +10,7 @@ import { useState, useEffect } from 'react';
 function App() {
 
 const [studentsArray, setStudentsArray] = useState([])
+const [editStudent, setEditStudent] = useState({})
 
 useEffect(() => {
   fetch('http://localhost:9292/students')
@@ -19,12 +19,23 @@ useEffect(() => {
 }, []
 )
 
-  function removeFromHallofLame(studentObj) {
+// useEffect(() => {
+//   fetch(`http://localhost:9292/students/${id}`)
+//     .then(response => response.json())
+//     .then(setEditStudent)
+// }, []
+// )
+
+  function removeFromHallofLame(id) {
     console.log(`Delete me!`)
-    const removeStudent = studentsArray.filter(student => student.id !== studentObj.id)
+    const removeStudent = studentsArray.filter(student => student.id !== id)
     setStudentsArray(removeStudent)
   }
 
+
+  function onStudentSubmit(updatedStudent){
+    setStudentsArray([...studentsArray, updatedStudent])
+}
  
 
   return (
@@ -41,6 +52,8 @@ useEffect(() => {
         studentsArray={studentsArray}
         setstudentsArray={setStudentsArray}
         removeFromHallofLame={removeFromHallofLame}
+        onStudentSubmit={onStudentSubmit}
+        setEditStudent={setEditStudent}
       />
 
     </Route>
@@ -48,16 +61,17 @@ useEffect(() => {
     <Route path="/">
         <Feed
         studentsArray={studentsArray}
-        setstudentsArray={setStudentsArray} />
+        setstudentsArray={setStudentsArray}
+     />
     </Route>
 
       <Route path="/feed">
         <Feed />
       </Route>
 
-      <Route path="/all_students/update">
+      {/* <Route path="/all_students/update">
         <UpdateStudent />
-      </Route>
+      </Route> */}
 
       </Switch>
 </>

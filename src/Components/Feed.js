@@ -6,11 +6,11 @@ import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 
-function Feed() {
+function Feed( {studentsArray, setStudentsArray}) {
 
     const [commentsArray, setCommentsArray]= useState([])
     const [meangirlsArray, setMeangirlsArray] = useState([])
-    const [studentsArray, setStudentsArray] = useState([])
+    // const [studentsArray, setStudentsArray] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:9292/comments')
@@ -26,15 +26,15 @@ function Feed() {
       }, []
     )
 
-    useEffect(() => {
-        fetch('http://localhost:9292/students')
-          .then(response => response.json())
-          .then(setStudentsArray)
-      }, []
-    )
+    // useEffect(() => {
+    //     fetch('http://localhost:9292/students')
+    //       .then(response => response.json())
+    //       .then(setStudentsArray)
+    //   }, []
+    // )
 
-    function onFormSubmit(patchComment){
-        setCommentsArray([...commentsArray.unshift(patchComment)])
+    function onFormSubmit(newComment){
+        setCommentsArray([newComment, ...commentsArray])
         // setMeangirlsArray([...meangirlsArray, patchComment])
         // setStudentsArray([...studentsArray, patchComment])
            }
@@ -42,6 +42,7 @@ function Feed() {
     function onMeanieSubmit(newMeanie){
            setMeangirlsArray([...meangirlsArray, newMeanie])
     }
+
 
     return (
     <div>
