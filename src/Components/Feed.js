@@ -12,9 +12,6 @@ function Feed() {
     const [meangirlsArray, setMeangirlsArray] = useState([])
     const [studentsArray, setStudentsArray] = useState([])
 
-
-
-
     useEffect(() => {
         fetch('http://localhost:9292/comments')
           .then(response => response.json())
@@ -51,11 +48,11 @@ function Feed() {
         <div class="ui equal width grid">
             <div class="four wide column">
             <div class="ui segment">
-            <NavLink to="/new_mean_girl">Add New Meangirl</NavLink>
                 <SideMenu
                 meangirlsArray={meangirlsArray}
                 onMeanieSubmit={onMeanieSubmit}
                 />
+                <NavLink to="/new_mean_girl" class="button">Add New Meangirl</NavLink>
             </div>
             </div>
             <div class="eight wide column">
@@ -70,7 +67,6 @@ function Feed() {
                 </div>
             <div class="four wide column">
                 <div class="ui segment">
-                <NavLink to="/feed">Back to Feed</NavLink>
                     <h1>Add a burn....</h1>
                     <CommentForm
                     studentsArray={studentsArray}

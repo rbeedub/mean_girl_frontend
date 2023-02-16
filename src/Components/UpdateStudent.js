@@ -1,60 +1,49 @@
 import React from 'react';
-import MiniStudentCard from './MiniStudentCard';
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react';
 
 
+function UpdateStudent( {studentsArray} ) {
 
-function AllStudents( {studentsArray,removeFromHallofLame} ) {
-
-let allStudentCardArray = studentsArray.map((student) => {
-    return <MiniStudentCard key={student.id} {...student} removeFromHallofLame={removeFromHallofLame} />
-})
-
-// const [studentID, setStudentID] = useState()
-
-// let studentDropDown = studentsArray.map((student) =>
-//     <option key={student.id}>
-//         {student.name}
-//     </option>
-//     )
-
-// function handleStudentChange(e){
-//     let selectedStudent = studentsArray.find(student => student.name === e.target.value)
-//     setStudentID(selectedStudent.id)
-//     handleFormChange(e)
-//     console.log(selectedStudent)
-// }
+    const [studentID, setStudentID] = useState()
 
 
-// const initialData = {
-// name:'',
-// type_of_uncool:'',
-// yearbook_photo: '',
-// year:''
-// }
-
-// const [formData, setFormdata] = useState(initialData)
-
-// function handleFormChange(e) {
-// const {name, value} = e.target;
-// setFormdata({...formData, [name]: value})
-// }
-
-// function handleFormSubmit (e) {
-// e.preventDefault();
+    let studentDropDown = studentsArray.map((student) =>
+        <option key={student.id}>
+            {student.name}
+        </option>
+        )
+    
+    function handleStudentChange(e){
+        let selectedStudent = studentsArray.find(student => student.name === e.target.value)
+        setStudentID(selectedStudent.id)
+        handleFormChange(e)
+        console.log(selectedStudent)
+    }
 
 
+const initialData = {
+    name:'',
+    type_of_uncool:'',
+    yearbook_photo: '',
+    year:''
+}
+
+const [formData, setFormdata] = useState(initialData)
+
+function handleFormChange(e) {
+    const {name, value} = e.target;
+    setFormdata({...formData, [name]: value})
+}
+
+function handleFormSubmit (e) {
+    e.preventDefault();
 
 return (
-<>
-    <div class="ui four cards">
-    {allStudentCardArray}
-    </div>
-    {/* <div>
-    <div class="ui equal width grid">
+<div class="ui equal width grid">
     <div class="column">
         <div class="ui segment">
+        
         </div>
     </div>
     <div class="eight wide column">
@@ -96,12 +85,9 @@ return (
     </div>
     </div>
 
-    </div> */}
-</>
+)
 
-
-    )
+}
 }
 
-
-export default AllStudents;
+export default UpdateStudent;

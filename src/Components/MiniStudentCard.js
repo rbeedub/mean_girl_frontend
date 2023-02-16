@@ -1,4 +1,6 @@
 import React from "react"
+import { NavLink } from "react-router-dom";
+import UpdateStudent from "./UpdateStudent";
 
 
 function MiniStudentCard( {id, name, type_of_uncool, yearbook_photo, year, removeFromHallofLame} ) {
@@ -10,6 +12,23 @@ function deleteStudent(id) {
         .then((res) => removeFromHallofLame(res))
        
     }
+
+// function updateStudent(id) {
+//     fetch(`http://localhost:9292/students/${id}`, {
+//         method: "PATCH",
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(formData),
+//         })
+//         .then((response) => response.json())
+
+//         .then(onFormSubmit)
+    
+//         .then(setFormdata(initialData))
+
+//       }
+       
 
 
 return (

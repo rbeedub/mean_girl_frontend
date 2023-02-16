@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Feed from "./Feed";
 import AddMeanGirl from "./AddMeanGirl";
+import UpdateStudent from "./UpdateStudent";
 import { Route, Switch } from "react-router-dom";
 import AllStudents from "./AllStudents";
 import { useState, useEffect } from 'react';
@@ -41,6 +42,7 @@ useEffect(() => {
         setstudentsArray={setStudentsArray}
         removeFromHallofLame={removeFromHallofLame}
       />
+
     </Route>
 
     <Route path="/">
@@ -48,12 +50,14 @@ useEffect(() => {
         studentsArray={studentsArray}
         setstudentsArray={setStudentsArray} />
     </Route>
-      
+
       <Route path="/feed">
         <Feed />
       </Route>
-      
 
+      <Route path="/all_students/update">
+        <UpdateStudent />
+      </Route>
 
       </Switch>
 </>

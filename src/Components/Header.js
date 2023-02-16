@@ -3,7 +3,9 @@ import { NavLink } from "react-router-dom";
 
 function Header() {
     return (
-    <img class="ui fluid image" src="./images/BurnBookBanner.svg" alt="placeholder" />
+      <NavLink to="/feed"><img class="ui fluid image" src="./images/BurnBookBanner.svg" alt="placeholder" />
+      </NavLink>
+
     );
   }
 
