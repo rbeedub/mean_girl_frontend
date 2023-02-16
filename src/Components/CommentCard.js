@@ -10,7 +10,7 @@ function CommentCard( {comment, incriminating_photo, type_of_uncool, level_of_un
             <div class="ui fluid card">
             <div class= "extra content">
             <div>
-                <img class="ui tiny avatar image" src={yearbook_photo} alt="yearbook photo" />
+                <img class="ui tiny avatar image" src={yearbook_photo} alt="yearbook photo"/>
                 <span> {name} </span>
                 </div>
                 </div>

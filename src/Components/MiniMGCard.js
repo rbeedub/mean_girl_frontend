@@ -1,7 +1,12 @@
 import React from 'react';
 
 function MiniMGCard( {name, headshot_photo, superlative, number_of_parties} ) {
+    
     return (
+        
+
+
+
     <div class="ui card">
         <div class="image">
             <img src={headshot_photo} alt="photo"/>
@@ -21,7 +26,7 @@ function MiniMGCard( {name, headshot_photo, superlative, number_of_parties} ) {
         <div class="extra content">
             <a>
             <i class="user icon"></i>
-            4 Best Friends Forever
+             Best Friends Forever
             </a>
         </div>
     </div>

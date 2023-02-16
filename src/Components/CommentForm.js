@@ -1,7 +1,21 @@
 import React from 'react';
 import { useState } from 'react'
 
-function CommentForm( { studentsArray, meangirlsArray, onFormSubmit } ) {
+function CommentForm( { studentsArray, meangirlsArray, onFormSubmit, commentsArray } ) {
+
+
+    const initialData = {
+        student: 'Student',
+        level_of_uncool: '',
+        like: false,
+        incriminating_photo:'',
+        comment:'',
+        plastic: 'Plastic'
+    }
+
+const [formData, setFormdata] = useState(initialData)
+const [studentID, setStudentID] = useState()
+
 
 let studentDropDown = studentsArray.map((student) =>
     <option key={student.id}>
@@ -9,24 +23,25 @@ let studentDropDown = studentsArray.map((student) =>
     </option>
     )
 
+function handleStudentChange(e){
+    let selectedStudent = studentsArray.find(student => student.name === e.target.value)
+    setStudentID(selectedStudent.id)
+    handleFormChange(e)
+    console.log(selectedStudent)
+}
+
+function handleMeangirlChange(e){
+    let selectedMeangirl = meangirlsArray.find(meanie => meanie.name === e.target.value)
+    setStudentID(selectedMeangirl.id)
+    handleFormChange(e)
+    console.log(selectedMeangirl)
+}
 
 let meangirlsDropDown = meangirlsArray.map((eachMG) =>
     <option key={eachMG.id}>
         {eachMG.name}
     </option>
     )
-
-        const initialData = {
-            student: 'Student',
-            level_of_uncool:'',
-            like: false,
-            incriminating_photo:'',
-            comment:'',
-            plastic: 'Plastic'
-        }
-
-const [formData, setFormdata] = useState(initialData)
-
 
 function handleFormChange(e) {
     const {name, value} = e.target;
@@ -36,27 +51,30 @@ function handleFormChange(e) {
 function handleFormSubmit (e) {
     e.preventDefault();
 
-    fetch('http://localhost:9292/comments', {
-    method: 'PATCH',
+    fetch(`http://localhost:9292/comments`, {
+    method: 'POST',
     headers: {
         'Content-Type': 'application/json',
     },
     body: JSON.stringify(formData),
     })
     .then((response) => response.json())
+    // .then(response => {
+    //     console.log(response)
+    // })
     .then(onFormSubmit)
 
     .then(setFormdata(initialData))
 }
 
 return (
-    <form class="ui form" onSubmit={handleFormSubmit}  >
+    <form class="ui form" onSubmit={handleFormSubmit} >
         <div class="ui one column">
         <div>
             <div class="one field">
                 <div class="field">
                     <label>Select a Student</label>
-                    <select class = "ui fluid dropdown" value= {formData.student} type="select" name="student" onChange={handleFormChange} >
+                    <select class = "ui fluid dropdown" value= {formData.student} type="select" name="student" placeholder="Student" onChange={handleStudentChange} >
                     {studentDropDown}
                     </select>
                 </div>
@@ -70,16 +88,16 @@ return (
                 </div>
                 <div class="field">
                 <label>Sick burn goes here: </label>
-                <input value= {formData.comment} type="text" name="comment"  placeholder="comment" onChange={handleFormChange}required  />
+                <input value= {formData.comment} type="text" name="comment"  placeholder="comment" onChange={handleFormChange}required />
                 <div class="field" onChange={handleFormChange} >
                     <label>With love,</label>
-                    <select class = "ui fluid dropdown" value= {formData.plastic} type="select" name="plastic" onChange={handleFormChange} >
+                    <select class = "ui fluid dropdown" value= {formData.plastic} type="select" name="plastic" onChange={handleMeangirlChange} >
                     {meangirlsDropDown}
                     </select>
                 </div>
             </div>
             </div>
-            <button class='ui left floated pink button' type="submit">Burn 'em</button>
+            <button type="submit">Submit</button>
             </div>
             <div class="ui vertical stripe quote segment"></div>
         </div>

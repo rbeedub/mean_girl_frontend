@@ -1,6 +1,7 @@
 import React from 'react';
 import MiniMGCard from './MiniMGCard';
 
+
 function SideMenu( {meangirlsArray} ) {
  
 
@@ -13,11 +14,9 @@ function SideMenu( {meangirlsArray} ) {
         <div>
             <h2>Meet the Plastics</h2>
             {allMeanies}
-            <div class="ui center pink button">Become a plastic!</div>
-            {/* <p>Apply to become a plastic.</p> */}
+         </div>
+  );
+};
 
-        </div>
-    )
-}
 
 export default SideMenu

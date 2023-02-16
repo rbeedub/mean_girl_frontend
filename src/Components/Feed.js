@@ -2,9 +2,11 @@ import React from 'react';
 import CommentForm from './CommentForm';
 import SideMenu from './SideMenu';
 import CommentWall from './CommentWall';
+import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-function Feed () {
+
+function Feed() {
 
     const [commentsArray, setCommentsArray]= useState([])
     const [meangirlsArray, setMeangirlsArray] = useState([])
@@ -34,23 +36,33 @@ function Feed () {
       }, []
     )
 
-    function onFormSubmit(newComment){
-        setCommentsArray([...commentsArray, newComment])
-      }
+    function onFormSubmit(patchComment){
+        setCommentsArray([...commentsArray.unshift(patchComment)])
+        // setMeangirlsArray([...meangirlsArray, patchComment])
+        // setStudentsArray([...studentsArray, patchComment])
+           }
 
+    function onMeanieSubmit(newMeanie){
+           setMeangirlsArray([...meangirlsArray, newMeanie])
+    }
 
     return (
     <div>
         <div class="ui equal width grid">
             <div class="four wide column">
             <div class="ui segment">
+            <NavLink to="/new_mean_girl">Add New Meangirl</NavLink>
                 <SideMenu
                 meangirlsArray={meangirlsArray}
+                onMeanieSubmit={onMeanieSubmit}
                 />
             </div>
             </div>
             <div class="eight wide column">
                 <div class="ui feed">
+                <h2 class="ui center aligned icon header">
+                    <NavLink to="/all_students"> ~ Hall of Lame ~ </NavLink>
+                        </h2>
                     <CommentWall
                     commentsArray={commentsArray}
                     />
@@ -58,6 +70,7 @@ function Feed () {
                 </div>
             <div class="four wide column">
                 <div class="ui segment">
+                <NavLink to="/feed">Back to Feed</NavLink>
                     <h1>Add a burn....</h1>
                     <CommentForm
                     studentsArray={studentsArray}
@@ -65,7 +78,7 @@ function Feed () {
                     meangirlsArray={meangirlsArray}
                     setMeangirlsArray={setMeangirlsArray}
                     onFormSubmit={onFormSubmit}
-                    />
+                    commentsArray={commentsArray}/>
                 </div>
             </div>
         </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import CommentCard from './CommentCard';
-import CommentForm from './CommentForm';
-import Sort from './Sort';
+
 
 function CommentWall( {commentsArray} ) {
 
