@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MiniMGCard( {id, name, headshot_photo, superlative, number_of_parties, removeFromBFF} ) {
+function MiniMGCard( {id, name, headshot_photo="/images/MGDefault.svg", superlative, number_of_parties, removeFromBFF} ) {
     
     function deleteMeangirl(e) {
         fetch(`http://localhost:9292/meangirls/${id}`, {method: "DELETE"})

@@ -68,7 +68,7 @@ function Feed( {studentsArray, setStudentsArray}) {
             <div class="eight wide column">
                 <div class="ui feed">
                 <div class="ui basic segment">
-                <NavLink to="/all_students"> <img class="ui fluid image" src="/images/NOTFetch.svg" alt="link"/></NavLink>
+                <NavLink to="/all_students"> <img class="ui fluid image" src="/images/NotFetch (1).svg" alt="link"/></NavLink>
                     </div>
                     </div>
                 <CommentWall

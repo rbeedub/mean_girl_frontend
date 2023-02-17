@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function CommentCard( {comment, incriminating_photo, headshot_photo, name, yearbook_photo } )  {
+function CommentCard( {comment, incriminating_photo, headshot_photo="/images/MGDefault.svg", name="Tina Belcher", yearbook_photo="/images/Default.svg" } )  {
 
     return (
 
