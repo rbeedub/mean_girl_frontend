@@ -26,6 +26,23 @@ Use this gif as an example of how the app should work.
 Our frontend is made with create-react-app
 We styled the site with semantic-ui
 
+### Methods Created
+-Average class age of students in the burn book
+-All liked comments
+-Most popular mean girl by number of parties
+-Superlative descritpion for each mean girl: #{self.name} aka: #{self.superlative}
+-An array of all comments by mean girl
+-Level of uncool points awarded by mean girl
+-Number of comments made by each mean girl
+-Increase and decrease level of uncool by one
+-Sort students by name alphabetically
+-Sort students by type of uncool alphabetically
+-Sort students by class year
+-Create a new Student
+-Create a new Meangirl
+-Create a new Comment
+-Generate an array of meangirl photos
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
