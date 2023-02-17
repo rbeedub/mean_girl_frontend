@@ -12,12 +12,14 @@ function App() {
 const [studentsArray, setStudentsArray] = useState([])
 const [editStudent, setEditStudent] = useState({})
 
+
 useEffect(() => {
   fetch('http://localhost:9292/students')
     .then(response => response.json())
     .then(setStudentsArray)
 }, []
 )
+
 
 // useEffect(() => {
 //   fetch(`http://localhost:9292/students/${id}`)
@@ -54,6 +56,7 @@ useEffect(() => {
         removeFromHallofLame={removeFromHallofLame}
         onStudentSubmit={onStudentSubmit}
         setEditStudent={setEditStudent}
+        editStudent={editStudent}
       />
 
     </Route>

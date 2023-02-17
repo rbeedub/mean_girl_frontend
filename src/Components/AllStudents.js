@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 
 
-function AllStudents( {studentsArray,removeFromHallofLame, onStudentSubmit, setEditStudent } ) {
+function AllStudents( {studentsArray,removeFromHallofLame, editStudent, onStudentSubmit, setEditStudent } ) {
 
 
 let allStudentCardArray = studentsArray.map((student) => {
@@ -15,23 +15,23 @@ let allStudentCardArray = studentsArray.map((student) => {
 const [studentID, setStudentID] = useState()
 
 let studentDropDown = studentsArray.map((student) =>
-    <option key={student.id}>
+    <option key={student.id} value={student.id}>
         {student.name}
     </option>
     )
 
  
 
-function handleStudentChange(e){
-    let selectedStudent = studentsArray.find(student => student.name === e.target.value)
-    setStudentID(selectedStudent.id)
-    handleFormChange(e)
-    console.log(selectedStudent)
-}
+// function handleStudentChange(e){
+//     let selectedStudent = studentsArray.find(student => student.name === e.target.value)
+//     setStudentID(selectedStudent.id)
+//     handleFormChange(e)
+//     console.log(selectedStudent)
+// }
 
 
 const initialData = {
-student:'',
+student_id:'',
 type_of_uncool:'',
 }
 
@@ -39,14 +39,16 @@ const [formData, setFormdata] = useState(initialData)
 
 function handleFormChange(e) {
 const {name, value} = e.target;
+console.log(e.target.value)
 setFormdata({...formData, [name]: value})
 }
 
 
 function handleSubmitForm(e) {
-e.preventDefault();
+// e.preventDefault();
 
-fetch(`http://localhost:9292/students`, {
+console.log(formData)
+fetch(`http://localhost:9292/students/${formData.student_id}`, {
     method: 'PATCH',
     headers: {
         'Content-Type': 'application/json',
@@ -72,7 +74,7 @@ return (
         <div >
                 <div class="field">
                         <label>Select a Student</label>
-                        <select class = "ui fluid dropdown" value={formData.name} type="select" name="student" placeholder="Student" onChange={handleStudentChange} >
+                        <select class = "ui fluid dropdown" value={formData.student_id} type="select" name="student_id" placeholder="Student" onChange={handleFormChange} >
                         {studentDropDown}
                         </select>
                     </div>

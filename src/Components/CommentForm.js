@@ -23,19 +23,7 @@ let studentDropDown = studentsArray.map((student) =>
     </option>
     )
 
-// function handleStudentChange(e){
-//     let selectedStudent = studentsArray.find(student => student.name === e.target.value)
-//     setStudentID(selectedStudent.id)
-//     handleFormChange(e)
-//     console.log(selectedStudent)
-// }
 
-// function handleMeangirlChange(e){
-//     let selectedMeangirl = meangirlsArray.find(meanie => meanie.name === e.target.value)
-//     setStudentID(selectedMeangirl.id)
-//     handleFormChange(e)
-//     console.log(selectedMeangirl)
-// }
 
 let meangirlsDropDown = meangirlsArray.map((eachMG) =>
     <option key={eachMG.id} value={eachMG.id}>
