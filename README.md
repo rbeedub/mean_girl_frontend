@@ -22,9 +22,10 @@ Use this gif as an example of how the app should work.
  ![gif walkthrough](https://github.com/rbeedub/mean_girl_frontend/blob/main/burnbook%20(1).gif?raw=true)
 
 
-### FrontEnd 
-Our frontend is made with create-react-app
-We styled the site with semantic-ui
+### About Burnbook 
+The frontend is made with create-react-app
+It's styled with semantic-ui 
+The backend is ruby
 
 ### Methods Created
 -Average class age of students in the burn book
