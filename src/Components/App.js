@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
-const [studentsArray, setStudentsArray] = useState([])
+
 const [editStudent, setEditStudent] = useState({})
 
 
@@ -19,20 +19,15 @@ useEffect(() => {
     .then(setStudentsArray)
 }, []
 )
+const [studentsArray, setStudentsArray] = useState([])
 
-
-// useEffect(() => {
-//   fetch(`http://localhost:9292/students/${id}`)
-//     .then(response => response.json())
-//     .then(setEditStudent)
-// }, []
-// )
-
-  function removeFromHallofLame(id) {
+  function removeFromHallofLame(idObj) {
     console.log(`Delete me!`)
-    const removeStudent = studentsArray.filter(student => student.id !== id)
+    const removeStudent = studentsArray.filter(student => student.id !== idObj)
     setStudentsArray(removeStudent)
   }
+
+  // setState(state.filter(item => item.id != id))
 
 
   function onStudentSubmit(updatedStudent){

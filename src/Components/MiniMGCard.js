@@ -9,10 +9,10 @@ function MiniMGCard( {name, headshot_photo, superlative, number_of_parties} ) {
 
     <div class="ui card">
         <div class="image">
-            <img src={headshot_photo} alt="photo"/>
+            <img src={headshot_photo} alt="headshot"/>
         </div>
         <div class="content">
-            <a class="header">{name}</a>
+            <div class="header">{name}</div>
             <div class="meta">
             <span class="date">Plastic since 2003</span>
             </div>
@@ -24,9 +24,9 @@ function MiniMGCard( {name, headshot_photo, superlative, number_of_parties} ) {
             </div>
         </div>
         <div class="extra content">
-            <a>
+            <a href="https://i.insider.com/608335b408610f0018b0f3d8?width=700">
             <i class="user icon"></i>
-             Best Friends Forever
+            Best Friends Forever
             </a>
         </div>
     </div>

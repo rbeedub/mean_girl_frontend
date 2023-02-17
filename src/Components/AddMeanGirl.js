@@ -41,7 +41,7 @@ return (
     <div class="ui equal width grid">
     <div class="column">
         <div class="ui segment">
-        
+        <img class="ui fluid image" src="./images/BurnBookBanner.svg" alt="placeholder" />
         </div>
     </div>
     <div class="eight wide column">
@@ -73,16 +73,17 @@ return (
             </div>
 
             </div>
-            <button class='ui left floated button' type="submit">Submit</button>
+            <button class="ui pink basic button" type="submit">Submit</button>
             </div>
         </div>
     </form>
-        <div><NavLink to="/feed">Back to Feed</NavLink></div>
+        
         </div>
+        <div><NavLink to="/feed">Back to Feed</NavLink></div>
     </div>
     <div class="column">
         <div class="ui segment">
-        
+        <img class="ui fluid image" src="./images/BurnBookBanner.svg" alt="placeholder" />
         </div>
     </div>
     </div>

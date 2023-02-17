@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react'
 
-function CommentForm( { studentsArray, meangirlsArray, onFormSubmit, commentsArray } ) {
+function CommentForm( { studentsArray, meangirlsArray, onFormSubmit } ) {
 
 
     const initialData = {
@@ -14,7 +14,7 @@ function CommentForm( { studentsArray, meangirlsArray, onFormSubmit, commentsArr
     }
 
 const [formData, setFormdata] = useState(initialData)
-const [studentID, setStudentID] = useState()
+// const [studentID, setStudentID] = useState()
 
 
 let studentDropDown = studentsArray.map((student) =>
@@ -85,7 +85,7 @@ return (
                 </div>
             </div>
             </div>
-            <button type="submit">Submit</button>
+            <button class="ui pink basic button" type="submit">Submit</button>
             </div>
             <div class="ui vertical stripe quote segment"></div>
         </div>

@@ -10,20 +10,20 @@ function Feed( {studentsArray, setStudentsArray}) {
 
     const [commentsArray, setCommentsArray]= useState([])
     const [meangirlsArray, setMeangirlsArray] = useState([])
-    // const [studentsArray, setStudentsArray] = useState([])
+
 
     useEffect(() => {
         fetch('http://localhost:9292/comments')
-          .then(response => response.json())
-          .then(setCommentsArray)
-      }, []
+        .then(response => response.json())
+        .then(setCommentsArray)
+    }, []
     )
-    
+
     useEffect(() => {
         fetch('http://localhost:9292/meangirls')
-          .then(response => response.json())
-          .then(setMeangirlsArray)
-      }, []
+        .then(response => response.json())
+        .then(setMeangirlsArray)
+    }, []
     )
 
     // useEffect(() => {
@@ -35,12 +35,10 @@ function Feed( {studentsArray, setStudentsArray}) {
 
     function onFormSubmit(newComment){
         setCommentsArray([newComment, ...commentsArray])
-        // setMeangirlsArray([...meangirlsArray, patchComment])
-        // setStudentsArray([...studentsArray, patchComment])
-           }
+        }
 
     function onMeanieSubmit(newMeanie){
-           setMeangirlsArray([...meangirlsArray, newMeanie])
+        setMeangirlsArray.unshift([...meangirlsArray, newMeanie])
     }
 
 
@@ -53,7 +51,10 @@ function Feed( {studentsArray, setStudentsArray}) {
                 meangirlsArray={meangirlsArray}
                 onMeanieSubmit={onMeanieSubmit}
                 />
-                <NavLink to="/new_mean_girl" class="button">Add New Meangirl</NavLink>
+                 <div class="ui clearing divider"></div>
+                <NavLink to="/new_mean_girl" >
+                <button class="ui pink basic button"> Add New Meangirl</button>
+                </NavLink>
             </div>
             </div>
             <div class="eight wide column">
@@ -75,7 +76,8 @@ function Feed( {studentsArray, setStudentsArray}) {
                     meangirlsArray={meangirlsArray}
                     setMeangirlsArray={setMeangirlsArray}
                     onFormSubmit={onFormSubmit}
-                    commentsArray={commentsArray}/>
+                    commentsArray={commentsArray}
+                />
                 </div>
             </div>
         </div>
