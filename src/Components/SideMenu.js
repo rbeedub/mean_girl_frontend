@@ -2,11 +2,11 @@ import React from 'react';
 import MiniMGCard from './MiniMGCard';
 
 
-function SideMenu( {meangirlsArray} ) {
+function SideMenu( {meangirlsArray, removeFromBFF} ) {
  
 
     let allMeanies = meangirlsArray.map((girl) => {
-        return <MiniMGCard key={girl.id} {...girl} />
+        return <MiniMGCard key={girl.id} {...girl} removeFromBFF={removeFromBFF} />
     })
 
 

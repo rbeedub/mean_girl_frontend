@@ -1,9 +1,13 @@
 import React from 'react';
 
-function MiniMGCard( {name, headshot_photo, superlative, number_of_parties} ) {
+function MiniMGCard( {id, name, headshot_photo, superlative, number_of_parties, removeFromBFF} ) {
     
+    function deleteMeangirl(e) {
+        fetch(`http://localhost:9292/meangirls/${id}`, {method: "DELETE"})
+            .then(() => removeFromBFF(id))
+    }
+
     return (
-        
 
 
 
@@ -16,6 +20,7 @@ function MiniMGCard( {name, headshot_photo, superlative, number_of_parties} ) {
             <div class="meta">
             <span class="date">Plastic since 2003</span>
             </div>
+            <div class="ui hidden divider"></div>
             <div class="superlative">
             "{superlative}"
             </div>
@@ -29,6 +34,11 @@ function MiniMGCard( {name, headshot_photo, superlative, number_of_parties} ) {
             Best Friends Forever
             </a>
         </div>
+        <button class="ui pink basic button" onClick={deleteMeangirl}>
+        <i class="recycle icon"></i>
+        Recycle Plastic
+        </button>
+
     </div>
 
     )

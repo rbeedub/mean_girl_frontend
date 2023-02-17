@@ -42,6 +42,13 @@ function Feed( {studentsArray, setStudentsArray}) {
     }
 
 
+    function removeFromBFF(idObj) {
+        console.log(`Delete me!`)
+        const removeMeanie = meangirlsArray.filter(meanie => meanie.id !== idObj)
+        setMeangirlsArray(removeMeanie)
+      }
+
+
     return (
     <div>
         <div class="ui equal width grid">
@@ -50,6 +57,7 @@ function Feed( {studentsArray, setStudentsArray}) {
                 <SideMenu
                 meangirlsArray={meangirlsArray}
                 onMeanieSubmit={onMeanieSubmit}
+                removeFromBFF={removeFromBFF}
                 />
                 <div class="ui clearing divider"></div>
                 <NavLink to="/new_mean_girl" >
