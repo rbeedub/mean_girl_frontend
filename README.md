@@ -19,7 +19,7 @@ LinkedIn:
 
 ## Visuals
 Use this gif as an example of how the app should work.
- ![gif walkthrough]()
+ ![gif walkthrough](https://github.com/rbeedub/mean_girl_frontend/blob/main/burnbook%20(1).gif?raw=true)
 
 
 ### FrontEnd 
