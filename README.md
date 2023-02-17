@@ -1,3 +1,31 @@
+# BurnBook
+
+What if Regina George had access to Ruby and React?
+
+## Description
+
+A site that allows users to post a new burn to a student, see a wall of burns,  add a new mean girl, delete a mean girl, see all the students, delete and update a student. 
+
+## Creator
+
+**Rebecca Wollard**
+<br />
+github: rbeedub
+<br />
+LinkedIn:
+([rbeedub](https://www.linkedin.com/in/rebecca-wollard/))
+
+
+
+## Visuals
+Use this gif as an example of how the app should work.
+ ![gif walkthrough]()
+
+
+### FrontEnd 
+Our frontend is made with create-react-app
+We styled the site with semantic-ui
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
