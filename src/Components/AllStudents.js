@@ -1,10 +1,11 @@
 import React from 'react';
 import MiniStudentCard from './MiniStudentCard';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
-function AllStudents( {studentsArray,removeFromHallofLame, editStudent, onStudentSubmit, setEditStudent } ) {
+function AllStudents( {studentsArray,removeFromHallofLame, setEditStudent } ) {
+
 
 
 let allStudentCardArray = studentsArray.map((student) => {
@@ -46,6 +47,7 @@ fetch(`http://localhost:9292/students/${formData.student_id}`, {
     })
     .then((response) => response.json())
     .then(res => setEditStudent(res))
+    .then(newChar => setEditStudent(studentsArray.map((character)=> character.id === newChar.id? newChar.id: character)))
 
     .then(setFormdata(initialData))
 }
