@@ -40,8 +40,8 @@ return (
 
     <div class="ui equal width grid">
     <div class="column">
-        <div class="ui segment">
-        <img class="ui fluid image" src="./images/BurnBookBanner.svg" alt="placeholder" />
+        <div>
+        <img src="/images/theRules.svg" alt="placeholder" />
         </div>
     </div>
     <div class="eight wide column">
@@ -73,56 +73,19 @@ return (
             </div>
 
             </div>
-            <button class="ui pink basic button" type="submit">Submit</button>
+            <button class="ui pink button" type="submit">Submit</button>
             </div>
         </div>
     </form>
-        
         </div>
         <div><NavLink to="/feed">Back to Feed</NavLink></div>
     </div>
     <div class="column">
-        <div class="ui segment">
-        <img class="ui fluid image" src="./images/BurnBookBanner.svg" alt="placeholder" />
+        <div>
+        <img src="/images/rules2.svg" alt="placeholder" />
         </div>
     </div>
     </div>
-
-
-
-
-
-    // <form class="ui form" onSubmit={onMeanieSubmit}>
-    //     <div class="ui one column">
-    //     <div >
-    //         <div class="one field">
-    //             <div class="field">
-    //             <label>Your Name</label>
-    //             <input value= {formData.name} type="text" name="name" placeholder="Name" onChange={handleFormChange} required />
-    //             </div>
-    //             <div class="field">
-    //             <label>Superlative </label>
-    //             <input value= {formData.superlative} type="text" name="superlative" placeholder="Most likely to..." onChange={handleFormChange} required />
-    //             </div>
-    //             <div class="field">
-    //             <label>Year </label>
-    //             <input value= {formData.year} type="number" name="year" placeholder="year" onChange={handleFormChange} required />
-    //             </div>
-    //             <div class="field">
-    //             <label>Headshot Photo</label>
-    //             <input value= {formData.headshot_photo} type="text" name="headshot_photo"  placeholder="headshot photo" onChange={handleFormChange}required  />
-    //             </div>
-    //             <div class="field">
-    //             <label>How many parties have you been to?: </label>
-    //             <input value= {formData.number_of_parties} type="number" name="number_of_parties"  placeholder="number_of_parties" onChange={handleFormChange}required  />
-    //             <br></br>
-    //         </div>
-
-    //         </div>
-    //         <button class='ui left floated button' type="submit">Submit</button>
-    //         </div>
-    //     </div>
-    // </form>
 
     )
     }

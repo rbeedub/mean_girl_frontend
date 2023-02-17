@@ -85,7 +85,7 @@ return (
                 </div>
             </div>
             </div>
-            <button class="ui pink basic button" type="submit">Submit</button>
+            <button class="ui pink button" type="submit">Submit</button>
             </div>
             <div class="ui vertical stripe quote segment"></div>
         </div>

@@ -56,27 +56,25 @@ return (
     <div class="ui grid">
     <div class="four wide column">
     <div class="ui center aligned segment">
+    <img src="/images/North Shore High Hall of Shame (2).svg" alt="school logo"/>
 
     <div class="ui inverted segment">
         <form class="form" onSubmit={handleSubmitForm}>
     <div class="ui inverted form"> Update a Student in the Hall of Lame
-    <div class="ui inverted divider"></div>
-        <div class="two fields">
-        <div >
-                <div class="field">
-                        <label>Select a Student</label>
-                        <select class = "ui fluid dropdown" value={formData.student_id} type="select" name="student_id" placeholder="Student" onChange={handleFormChange} >
-                        {studentDropDown}
-                        </select>
-                    </div>
-                <div class="field">
-                    <label>Update the type of lame this person is:</label>
-                    <input value={formData.type_of_uncool} name="type_of_uncool" type="text" placeholder="Band geek" onChange={handleFormChange}/>
-        </div>
-    </div>
+    <div class="ui divider"></div>
+        <div class="field">
+                <label>Select a Student</label>
+                <select class = "ui fluid dropdown" value={formData.student_id} type="select" name="student_id" placeholder="Student" onChange={handleFormChange} >
+                {studentDropDown}
+                </select>
+            </div>
+            <div class="ui inverted divider"></div>
+        <div class="field">
+            <label>Update the type of lame this person is:</label>
+            <input value={formData.type_of_uncool} name="type_of_uncool" type="text" placeholder="Band geek" onChange={handleFormChange}/>
         </div>
         <div>
-        <button class='ui left floated button' type="submit">Submit</button>
+        <button class="ui pink button" type="submit">Submit</button>
         </div>
     </div>
     </form>

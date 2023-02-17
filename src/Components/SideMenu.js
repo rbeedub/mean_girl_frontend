@@ -12,7 +12,7 @@ function SideMenu( {meangirlsArray} ) {
 
     return (
         <div>
-            <h2>Meet the Plastics</h2>
+            <img class="ui fluid image" src="/images/PlasticsBanner.svg"/>
             {allMeanies}
          </div>
   );

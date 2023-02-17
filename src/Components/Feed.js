@@ -46,30 +46,32 @@ function Feed( {studentsArray, setStudentsArray}) {
     <div>
         <div class="ui equal width grid">
             <div class="four wide column">
-            <div class="ui segment">
+            <div class="ui basic segment">
                 <SideMenu
                 meangirlsArray={meangirlsArray}
                 onMeanieSubmit={onMeanieSubmit}
                 />
-                 <div class="ui clearing divider"></div>
+                <div class="ui clearing divider"></div>
                 <NavLink to="/new_mean_girl" >
-                <button class="ui pink basic button"> Add New Meangirl</button>
+                <button class="ui pink button"> Add New Meangirl</button>
                 </NavLink>
             </div>
             </div>
             <div class="eight wide column">
                 <div class="ui feed">
-                <h2 class="ui center aligned icon header">
-                    <NavLink to="/all_students"> ~ Hall of Lame ~ </NavLink>
-                        </h2>
-                    <CommentWall
-                    commentsArray={commentsArray}
+                <div class="ui basic segment">
+                <NavLink to="/all_students"> <img class="ui fluid image" src="/images/NOTFetch.svg" alt="link"/></NavLink>
+                    </div>
+                    </div>
+                <CommentWall
+                commentsArray={commentsArray}
                     />
-                </div>
+
                 </div>
             <div class="four wide column">
+            <img class="ui fluid image" src="/images/burnNotices.svg" alt="burn header"/>
+
                 <div class="ui segment">
-                    <h1>Add a burn....</h1>
                     <CommentForm
                     studentsArray={studentsArray}
                     setStudentsArray={setStudentsArray}
